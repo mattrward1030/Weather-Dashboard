@@ -15,27 +15,28 @@
     <header class="title">
         <h1 class="display-1">Weather Dashboard</h1>
     </header>
-    <div class="row">
-        <div class="card" style="width: 18rem;">
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
 
-            <div class="card-body">
-                <h5 class="card-title">Search</h5>
-
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+            <div class="card">
+                <h3 class="card-header text-uppercase">Search for a City:</h3>
+                <form id="city" class="card-body">
+                    <label class="form-label" for="city"></label>
+                    <input name="city" id="city" type="text" autofocus="true" class="form-input" placeholder="City" />
+                    <button type="submit" class="btn"> <i class="fas fa-search"></i></button>
+                </form>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
+            <div id="weather-info" class="card">
+                <h3 class="card-header"></h3>
+                <div id="city-results" class="card-body">
+
+                </div>
             </div>
         </div>
-    </div>
+
+
+    </main>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
