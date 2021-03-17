@@ -51,6 +51,20 @@ search.click(function () {
                 cityTemp.append("<p>" + "Temperature: " + data.main.temp + "</p>");
                 cityTemp.append("<p>" + "Humidity: " + data.main.humidity + "%" + "</p>");
                 cityTemp.append("<p>" + "Wind Speed: " + data.wind.speed + "</p>");
+
+                var uvUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=b8ecb570e32c2e5042581abd004b71bb&lat=${data.coord.lat}&lon=${data.coord.lon}`;
+
+
+                fetch(uvUrl)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        var uvIndex = cityTemp.append("<p>" + "UV Index: " + data.value + "</p>").addClass("card-text")
+                        if (uvIndex < 3) {
+                            $(this).addClass("acceptable")
+                        }
+                    });
             })
     }
 })
