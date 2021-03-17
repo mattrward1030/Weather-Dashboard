@@ -42,15 +42,16 @@ search.click(function () {
                 currentCard.append(cityName);
 
                 var time = new Date(data.dt * 1000);
-                cityName.append(data.name + " " + time.toLocaleDateString("en-US"));
+                cityName.append(" " + time.toLocaleDateString("en-US"));
                 cityName.append(`<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`);
 
                 var cityTemp = cityName.append("<p>");
 
                 cityName.append(cityTemp);
-                cityTemp.append("<p>" + "Temperature: " + data.main.temp + "</p>");
-                cityTemp.append("<p>" + "Humidity: " + data.main.humidity + "%" + "</p>");
-                cityTemp.append("<p>" + "Wind Speed: " + data.wind.speed + "</p>");
+                cityTemp.append("<p>" + "Temperature: " + data.main.temp + " °F" + "</p>");
+                cityTemp.append("<p>" + "Humidity: " + data.main.humidity + " %" + "</p>");
+                cityTemp.append("<p>" + "Wind Speed: " + data.wind.speed + " mph" + "</p>");
+
 
                 var uvUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=b8ecb570e32c2e5042581abd004b71bb&lat=${data.coord.lat}&lon=${data.coord.lon}`;
 
@@ -64,6 +65,8 @@ search.click(function () {
                         if (uvIndex < 3) {
                             $(this).addClass("acceptable")
                         }
+                        console.log(data)
+
                     });
             })
     }
