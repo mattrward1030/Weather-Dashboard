@@ -14,7 +14,7 @@ var search = $(".searchButton");
 
 for (var i = 0; i < localStorage.length; i++) {
 
-    var city = localStorage.getItem(i);
+    var city = JSON.parse(localStorage.getItem(i));
 
     var cityName = $(".list-group").addClass("list-group-item");
 
@@ -41,7 +41,7 @@ search.click(function () {
             .then(function (data) {
                 var city = $(".list-group").addClass("list-group-item");
                 city.append("<li>" + data.name + "</li>");
-                var local = localStorage.setItem(keyCount, data.name);
+                var local = localStorage.setItem(JSON.stringify(keyCount, data.name));
                 keyCount = keyCount + 1;
 
                 var currentCard = $(".currentCard").append("<div>").addClass("card-body");
@@ -69,9 +69,9 @@ search.click(function () {
                         return response.json();
                     })
                     .then(function (data) {
-                        var uvIndex = cityTemp.append("<p>" + "UV Index: " + data.value + "</p>").addClass("card-text")
+                        var uvIndex = cityTemp.append("<p5>" + "UV Index: " + data.value + "</p5>").addClass("card-text")
                         if (uvIndex < 3) {
-                            $(this).addClass("acceptable")
+                            p5.addClass("acceptable")
                         }
 
 
