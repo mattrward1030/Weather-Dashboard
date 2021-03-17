@@ -65,9 +65,19 @@ search.click(function () {
                         if (uvIndex < 3) {
                             $(this).addClass("acceptable")
                         }
-                        console.log(data)
+
 
                     });
             })
+
+        fetch(fiveDayWeather)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+            })
     }
 })
+
+
