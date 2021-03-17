@@ -12,32 +12,58 @@
 </head>
 
 <body>
-    <header class="title">
-        <h1 class="display-1">Weather Dashboard</h1>
-    </header>
-    <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
 
-            <div class="card">
-                <h3 class="card-header text-uppercase">Search for a City:</h3>
-                <form id="city" class="card-body">
-                    <label class="form-label" for="city"></label>
-                    <input name="city" id="city" type="text" autofocus="true" class="form-input" placeholder="City" />
-                    <button type="submit" class="btn"> <i class="fas fa-search"></i></button>
-                </form>
+    <main class="container-fluid">
+        <header class="card">
+            <div class="card-body text-center bg-dark text-white">
+                <h1 class="display-1">Weather Dashboard</h1>
             </div>
+        </header>
 
-            <div id="weather-info" class="card">
-                <h3 class="card-header"></h3>
-                <div id="city-results" class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card-body text-center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body bg-light">
+                                <h4 class="card-subtitle mb-2 text-muted">Search For A City:</h4>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control searchInput" placeholder="Enter City Name">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary bg-primary searchButton" type="button"
+                                            id="button-addon2"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
 
+                                <ul class="list-group">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mt-4 mr-5">
+                    <div class="card currentCard pb-2 pt-1">
+                        <h5 class="card-title mt-2 text-center">Current Forecast</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+                        <div class="card pb-5 fiveDayCard pl-5">
+                            <h5 class="card-title mt-2 mr-5">5-Day Forecast </h5>
+                            <div class="row">
+                                <div class="col fiveDayOne">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </main>
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
