@@ -69,13 +69,15 @@ search.click(function () {
 
                     });
             })
-
+        // fetch call for fiveDayWeather api 
         fetch(fiveDayWeather)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
                 console.log(data)
+                // define array for 12 o'clock hour of each day
+                var midDay = [5, 13, 21, 29, 37];
             })
     }
 })
