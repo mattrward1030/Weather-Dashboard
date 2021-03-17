@@ -31,10 +31,26 @@ search.click(function () {
                 return response.json();
             })
             .then(function (data) {
-                var cityName = $(".list-group").addClass("list-group-item");
-                cityName.append("<li>" + data.name + "</li>");
+                var city = $(".list-group").addClass("list-group-item");
+                city.append("<li>" + data.name + "</li>");
                 var local = localStorage.setItem(keyCount, data.name);
                 keyCount = keyCount + 1;
+
+                var currentCard = $(".currentCard").append("<div>").addClass("card-body");
+                currentCard.empty();
+                var cityName = currentCard.append("<p>");
+                currentCard.append(cityName);
+
+                var time = new Date(data.dt * 1000);
+                cityName.append(data.name + " " + time.toLocaleDateString("en-US"));
+                cityName.append(`<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`);
+
+                var cityTemp = cityName.append("<p>");
+
+                cityName.append(cityTemp);
+                cityTemp.append("<p>" + "Temperature: " + data.main.temp + "</p>");
+                cityTemp.append("<p>" + "Humidity: " + data.main.humidity + "%" + "</p>");
+                cityTemp.append("<p>" + "Wind Speed: " + data.wind.speed + "</p>");
             })
     }
 })
