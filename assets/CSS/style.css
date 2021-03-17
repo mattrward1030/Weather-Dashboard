@@ -9,3 +9,16 @@ h1{
 .acceptable {
 color: green;
 }
+
+.blockColor {
+    padding: 20px;
+    background-color: #1E90FF;
+    border: 5px solid lightgray;
+    color: white;
+    position: relative;
+    float: left;
+    margin: 20px;
+    
+
+}
+

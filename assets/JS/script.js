@@ -12,6 +12,14 @@
 var apiKey = "970bf4867656ea18a3d31d39295c5b09";
 var search = $(".searchButton");
 
+for (var i = 0; i < localStorage.length; i++) {
+
+    var city = localStorage.getItem(i);
+
+    var cityName = $(".list-group").addClass("list-group-item");
+
+    cityName.append("<li>" + city + "</li>");
+}
 
 var keyCount = 0;
 search.click(function () {
@@ -78,8 +86,21 @@ search.click(function () {
                 console.log(data)
                 // define array for 12 o'clock hour of each day
                 var midDay = [5, 13, 21, 29, 37];
+                var fiveDayForecast = $(".fiveDayCard").addClass("card-body");
+                var fiveDayContainer = $(".fiveDay").addClass("card-text");
+                fiveDayContainer.empty();
+                midDay.forEach(function (i) {
+                    var FiveDayTime = new Date(data.list[i].dt * 1000);
+                    FiveDayTime = FiveDayTime.toLocaleDateString("en-US");
+
+                    fiveDayContainer.append("<div class=blockColor>" + "<p>" + FiveDayTime + "</p>" + `<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + data.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + data.list[i].main.humidity + "%" + "</p>" + "</div>");
+                })
             })
     }
 })
+
+
+
+
 
 
