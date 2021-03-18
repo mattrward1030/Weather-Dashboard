@@ -32,17 +32,10 @@ search.click(function () {
             })
             .then(function (data) {
                 var city = $(".list-group").addClass("list-group-item");
-                city.append("<li>" + data.name + "</li>");
+                city.append("<button>" + data.name + "</button>");
                 var local = localStorage.setItem("searchHistory", data.name);
 
-                for (var i = 0; i < localStorage.length; i++) {
 
-                    var city = localStorage.getItem("searchHistory", data.name);
-
-                    var cityName = $(".list-group").addClass("list-group-item");
-
-                    cityName.append("<li>" + city + "</li>");
-                }
 
                 var currentCard = $(".currentCard").append("<div>").addClass("card-body");
                 currentCard.empty();
