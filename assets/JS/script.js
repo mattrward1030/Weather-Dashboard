@@ -11,8 +11,8 @@
 // THEN I am again presented with current and future conditions for that city
 var apiKey = "970bf4867656ea18a3d31d39295c5b09";
 var search = $(".searchButton");
-
-
+var cityBtn = $(".cityButton")
+var cityArray = []
 
 search.click(function () {
 
@@ -32,8 +32,11 @@ search.click(function () {
             })
             .then(function (data) {
                 var city = $(".list-group").addClass("list-group-item");
-                city.append("<button>" + data.name + "</button>");
-                var local = localStorage.setItem("searchHistory", data.name);
+                city.append("<button class='cityButton'>" + data.name + "</button > ");
+                cityArray.push(data.name)
+                console.log(cityArray);
+                var local = localStorage.setItem("searchHistory", cityArray);
+
 
 
 
@@ -43,8 +46,8 @@ search.click(function () {
                 currentCard.append(cityName);
 
                 var time = new Date(data.dt * 1000);
-                cityName.append(" " + time.toLocaleDateString("en-US"));
-                cityName.append(`<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`);
+                cityName.append(data.name + " " + time.toLocaleDateString("en-US"));
+                cityName.append(`<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png">`);
 
                 var cityTemp = cityName.append("<p>");
 
@@ -96,4 +99,8 @@ search.click(function () {
 
 
 
+cityBtn.click(function () {
+
+    localStorage.getItem(cityArray)
+})
 
