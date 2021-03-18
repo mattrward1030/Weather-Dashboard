@@ -1,3 +1,4 @@
+/* styling weather dashboard header */
 h1{
     text-align: center;
     background-color: rgb(57, 55, 55);
@@ -5,11 +6,11 @@ h1{
     color: white;
 }
 
-
+/* trying to add style to uv index based on how high or low it is */
 .acceptable {
 color: green;
 }
-
+/* five day block color */
 .blockColor {
     padding: 20px;
     background-color: #1E90FF;
@@ -21,8 +22,12 @@ color: green;
     
 
 }
+
+/* image size inside current weather block */
 img {
     height: 75px;
     width: 75px;
 }
+
+
 
